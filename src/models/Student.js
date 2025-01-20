@@ -1,0 +1,18 @@
+import { model, Schema, version } from 'mongoose'; // importa el modelo y el esquema de mongoose
+
+const studentsSchema= new Schema({
+    student_id:{
+    require: true,
+    type: Number
+    },
+    name: String,
+    lastname: String,
+    grade: Number,
+    group: String,
+    average: Number
+    },{
+    versionKey:false,
+    timestamps: true
+});
+
+export default model('student', studentsSchema);
