@@ -2,8 +2,9 @@ import { model, Schema, version } from 'mongoose'; // importa el modelo y el esq
 
 const studentsSchema= new Schema({
     student_id:{
-    require: true,
-    type: Number
+        unique:true,
+        require: true,
+        type: Number
     },
     name: String,
     lastname: String,

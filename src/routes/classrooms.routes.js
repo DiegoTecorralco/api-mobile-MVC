@@ -4,6 +4,7 @@ import classroomsController from "../controllers/classrooms.controller.js";
 const classroomRoutes=Router();
 
 classroomRoutes.get('/getAll',classroomsController.getAll);
+classroomRoutes.get('/getOne/:classroom_id',classroomsController.getOne);
 
 classroomRoutes.post('/',(req,res)=>{
     res.send("Adios mundo cruel");
