@@ -8,5 +8,13 @@ teacherDAO.getOne=async(teacher_number)=>{
 };
 teacherDAO.insert=async(Teacher)=>{
     return await Teacher.create(Teacher); //   
-}
+};
+
+teacherDAO.updateOne=async(teacher_number,Teacher)=>{
+    return await Teacher.findOneAndUpdate({teacher_number:teacher_number},Teacher);
+};
+teacherDAO.deleteOne=async(teacher_number)=>{
+    return await Teacher.findOneAndDelete({teacher_number:teacher_number});
+};
+
 export default teacherDAO; //exporta toda la variable de teacherDAO

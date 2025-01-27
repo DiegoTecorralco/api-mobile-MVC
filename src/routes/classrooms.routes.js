@@ -5,6 +5,9 @@ const classroomRoutes=Router();
 
 classroomRoutes.get('/getAll',classroomsController.getAll);
 classroomRoutes.get('/getOne/:classroom_id',classroomsController.getOne);
+classroomRoutes.post('/insert',classroomsController.insert);
+classroomRoutes.put('/updateOne/:classroom_id',classroomsController.updateOne);
+classroomRoutes.delete('/deleteOne/:classroom_id',classroomsController.deleteOne);
 
 classroomRoutes.post('/',(req,res)=>{
     res.send("Adios mundo cruel");

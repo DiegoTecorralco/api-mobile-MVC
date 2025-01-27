@@ -56,4 +56,39 @@ studentsController.insert=(req,res)=>{
         })
     })
 };
+
+studentsController.updateOne = (req, res) => {
+    studentDAO
+      .updateOne(req.params.studentID, req.body)
+      .then((response) => {
+        res.json({
+          data: {
+            message: "Student updated successfully",
+            student: response,
+          },
+        });
+      })
+      .catch((error) => {
+        res.json({ data: { message: error } });
+      });
+  };
+  
+  studentsController.deleteOne = (req, res) => {
+    studentDAO
+      .deleteOne(req.params.studentID)
+      .then((response) => {
+        res.json({
+          data: {
+            message: "Student deleted successfully",
+            student: response,
+          },
+        });
+      })
+      .catch((error) => {
+        data: {
+          message: error;
+        }
+      });
+  };
+
 export default studentsController;

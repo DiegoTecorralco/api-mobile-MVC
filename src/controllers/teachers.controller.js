@@ -51,7 +51,40 @@ teachersController.insert=(req,res)=>{
     .catch((error)=>{
         res.json({data:{message:error}
         })
-    })
-}
+    });
+};
+
+teachersController.updateOne = (req, res) => {
+    teacherDAO
+      .updateOne(req.params.teacher_number, req.body)
+      .then((response) => {
+        res.json({
+          data: {
+            message: "teacher updated successfully",
+            teacher: response,
+          },
+        });
+      })
+      .catch((error) => {
+        res.json({ data: { message: error } });
+      });
+  };
+  
+  teachersController.deleteOne = (req, res) => {
+    teacherDAO
+      .deleteOne(req.params.teacher_number)
+      .then((response) => {
+        res.json({
+          data: {
+            message: "Teacher deleted successfully",
+            teacher: response,
+          },
+        });
+      })
+      .catch((error) => {
+        res.json({ data: { message: error } });
+      });
+  };
+
 
 export default teachersController;
