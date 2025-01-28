@@ -7,9 +7,11 @@ studentsController.getAll = (req, res) => {
     // Aquí le voy a pedir al DAO los datos de los estudiantes
     studentDAO.getAll()
         .then((students) => {
-            res.json({
+          console.log(students);
+            /*res.json({
                 data: students
-            });
+            });*/
+            res.render('../src/views/index.ejs')  //es para queen lugar de responder un json responda lo que esta en la ruta que le especificamos que es la de '../src/views/index.ejs'
         })
         .catch((error) => {
             res.json({
@@ -22,7 +24,7 @@ studentsController.getAll = (req, res) => {
 
 // Controlador para obtener un estudiante por ID
 studentsController.getOne = (req, res) => {
-    studentDAO.getOne(req.params.studentID)
+    studentDAO.getOne(req.params.student_id)
         .then((student) => {
             if (student !== null) {
                 res.json({
