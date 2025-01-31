@@ -6,8 +6,8 @@ const studentRouter=Router();
 studentRouter.get('/getAll',studentsController.getAll);
 studentRouter.get('/getOne/:student_id',studentsController.getOne);
 studentRouter.post('/insert',studentsController.insert);
-studentRouter.put('/updateOne/:student_id',studentsController.updateOne);
-studentRouter.delete('/deleteOne/:student_id',studentsController.deleteOne);
+studentRouter.post('/updateOne/:student_id',studentsController.updateOne);
+studentRouter.get('/deleteOne/:student_id',studentsController.deleteOne);
 
 studentRouter.post('/',(req,res)=>{
     res.send("Adios mundo cruel");

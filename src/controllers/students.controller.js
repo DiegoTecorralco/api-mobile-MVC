@@ -11,7 +11,7 @@ studentsController.getAll = (req, res) => {
             /*res.json({
                 data: students
             });*/
-            res.render('../src/views/index.ejs')  //es para queen lugar de responder un json responda lo que esta en la ruta que le especificamos que es la de '../src/views/index.ejs'
+            res.render('../src/views/index.ejs', {students});  //es para que en lugar de responder un json renderice lo que esta en la ruta que le especificamos que es la de '../src/views/index.ejs' y le ponemos los estudiantes para despues mandar a traer los estudiantes
         })
         .catch((error) => {
             res.json({
@@ -26,7 +26,7 @@ studentsController.getAll = (req, res) => {
 studentsController.getOne = (req, res) => {
     studentDAO.getOne(req.params.student_id)
         .then((student) => {
-            if (student !== null) {
+           /* if (student !== null) {
                 res.json({
                     data: student
                 });
@@ -34,7 +34,8 @@ studentsController.getOne = (req, res) => {
                 res.json({
                     message: "Student not found"
                 });
-            }
+            }*/
+           res.render('../src/views/edit.ejs', {student});
         })
         .catch((error) => {
             res.json({
@@ -48,10 +49,11 @@ studentsController.getOne = (req, res) => {
 studentsController.insert=(req,res)=>{
     studentDAO.insert(req.body)
     .then((reponse)=>{
-        res.json({
+       /* res.json({
             data:{ message: "Student saved"},
             student: response
-        })
+        })*/
+       res.redirect('/api/students/getAll'); //hago la peticion a otro enpoint para que parezca que se recarga la pagina
     })
     .catch((error)=>{
         res.json({data:{message:error}
@@ -63,12 +65,13 @@ studentsController.updateOne = (req, res) => {
     studentDAO
       .updateOne(req.params.studentID, req.body)
       .then((response) => {
-        res.json({
+        /*res.json({
           data: {
             message: "Student updated successfully",
             student: response,
           },
-        });
+        });*/
+        res.redirect('/api/students/getAll');
       })
       .catch((error) => {
         res.json({ data: { message: error } });
@@ -79,12 +82,13 @@ studentsController.updateOne = (req, res) => {
     studentDAO
       .deleteOne(req.params.studentID)
       .then((response) => {
-        res.json({
+      /*  res.json({
           data: {
             message: "Student deleted successfully",
             student: response,
           },
-        });
+        });*/
+        res.redirect('/api/students/getAll');
       })
       .catch((error) => {
         data: {

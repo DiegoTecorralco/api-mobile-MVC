@@ -3,7 +3,7 @@ import { model, Schema, version } from 'mongoose'; // importa el modelo y el esq
 const classroomsSchema= new Schema({
     classroom_id:{
         unique:true,
-        require: true,
+        required: true,
         type: Number
     },
     building: String,

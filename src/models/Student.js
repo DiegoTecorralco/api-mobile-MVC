@@ -3,14 +3,14 @@ import { model, Schema, version } from 'mongoose'; // importa el modelo y el esq
 const studentsSchema= new Schema({
     student_id:{
         unique:true,
-        require: true,
+        required: true,
         type: Number
     },
-    name: String,
-    lastname: String,
-    grade: Number,
-    group: String,
-    average: Number
+    name: {type: String, required: true},
+    lastname: {type: String, required: true},
+    grade: {type: Number, required: true},
+    group: {type: String, required: true},
+    average: {type: Number, required: true}
     },{
     versionKey:false,
     timestamps: true

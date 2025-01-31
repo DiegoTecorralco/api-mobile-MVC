@@ -5,7 +5,7 @@ import { model, Schema, version } from 'mongoose'; // importa el modelo y el esq
 const teachersSchema= new Schema({     
     teacher_number:{
         unique: true,
-        require: true,
+        required: true,
         type: Number
     },
     name: String,

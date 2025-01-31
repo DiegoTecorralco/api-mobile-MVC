@@ -39,6 +39,24 @@ Google CDN
                 <input type="number" name="average" id="txtAverage" placeholder="Ingresa el promedio aquí">
                 <button class="ui-btn ui-btn-inline">Guardar</button>
             </form>
+            
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="Buscar estudiantes" data-inset="true">
+                <!--vamos a incrustar JavaScript a HTML con ejs para mandar a traer a los estudiantes en un forEach y todo lo que sea en javaScript va a ser dentro de <% %> -->
+                <% students.forEach((student)=>{ %>
+                    <div data-role="collapsible" data-content-theme="false">
+                    <h4><%= student.name%></h4>
+                    <p>Matricula: <%= student.student_id %></p>
+                    <p>Nombre: <%= student.name %></p>
+                    <p>Apellidos: <%= student.lastname%></p>
+                    <p>Grupo <%= student.grade%></p>
+                    <p>Grado <%= student.group%></p>
+                    <p>Promedio <%= student.average%></p>
+                    <a href="/api/students/getOne/<%= student.student_id %>" class="ui-btn ui-icon-edit ui-btn-icon-bottom">Editar</a>
+                    <a href="/api/students/deleteOne/<%= student.student_id %>" class="ui-btn ui-icon-delete ui-btn-icon-bottom">Borrar</a>
+                    </div>
+                <% }) %>  
+            </ul>
+            
         </div>
         <div data-role="footer" style="overflow:hidden;">
             <h4 style="text-align: center;">Redes Sociales</h4>
