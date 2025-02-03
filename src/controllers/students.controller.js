@@ -63,7 +63,7 @@ studentsController.insert=(req,res)=>{
 
 studentsController.updateOne = (req, res) => {
     studentDAO
-      .updateOne(req.params.studentID, req.body)
+      .updateOne(req.params.student_id, req.body)
       .then((response) => {
         /*res.json({
           data: {
@@ -80,7 +80,7 @@ studentsController.updateOne = (req, res) => {
   
   studentsController.deleteOne = (req, res) => {
     studentDAO
-      .deleteOne(req.params.studentID)
+      .deleteOne(req.params.student_id)
       .then((response) => {
       /*  res.json({
           data: {

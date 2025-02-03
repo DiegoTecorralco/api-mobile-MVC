@@ -24,7 +24,7 @@ Google CDN
             <h1>Busca alumnos</h1>  
         </div> 
         <div role="content" class="ui-content"> 
-            <form action="/api/students/getOne/<%=student.student_id%>" method="POST">  
+            <form action="/api/students/updateOne/<%= student.student_id %>" method="POST">
                 <label for="txtStudentID">Matrícula:</label>
                 <input type="number" name="student_id" id="txtStudentID" value="<%= student.student_id %>" placeholder="Ingresa la matrícula aquí">
                 <label for="txtName">Nombre:</label>
@@ -37,7 +37,7 @@ Google CDN
                 <input type="text" name="group" id="txtGroup" value="<%= student.group %>"  placeholder="Ingresa el grupo aquí">
                 <label for="txtAverage">Promedio:</label>
                 <input type="number" name="average" id="txtAverage" value="<%= student.average %>" placeholder="Ingresa el promedio aquí">
-                <button class="ui-btn ui-btn-inline">Actualizar</button>
+                <button type="submit" class="ui-btn ui-btn-inline">Actualizar</button>
             </form>
         </div>
         <div data-role="footer" style="overflow:hidden;">

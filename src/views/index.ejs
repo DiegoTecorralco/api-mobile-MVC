@@ -21,22 +21,22 @@ Google CDN
                     <li><a href="#">Aulas</a></li>
                 </ul>
             </div>
-            <h1>Busca alumnos</h1>  
+            <h1>Agrega a un alumno</h1>  
         </div> 
         <div role="content" class="ui-content"> 
             <form action="/api/students/insert" method="POST">  
                 <label for="txtStudentID">Matrícula:</label>
-                <input type="number" name="student_id" id="txtStudentID" placeholder="Ingresa la matrícula aquí">
+                <input type="number" name="student_id" id="txtStudentID" placeholder="Ingresa la matrícula aquí" required>
                 <label for="txtName">Nombre:</label>
-                <input type="text" name="name" id="txtName" placeholder="ingresa el nombre aquí">
+                <input type="text" name="name" id="txtName" placeholder="ingresa el nombre aquí" required>
                 <label for="txtLastName">Apellido(s):</label>
-                <input type="text" name="lastname" id="txtLastName" placeholder="Ingresa el apellido(s) aquí">
+                <input type="text" name="lastname" id="txtLastName" placeholder="Ingresa el apellido(s) aquí" required>
                 <label for="txtGrade">Grado:</label>
-                <input type="number" name="grade" id="txtGrade" placeholder="Ingresa el grado aquí">
+                <input type="number" name="grade" id="txtGrade" placeholder="Ingresa el grado aquí" required>
                 <label for="txtGroup">Grupo:</label>
-                <input type="text" name="group" id="txtGroup" placeholder="Ingresa el grupo aquí">
+                <input type="text" name="group" id="txtGroup" placeholder="Ingresa el grupo aquí" required>
                 <label for="txtAverage">Promedio:</label>
-                <input type="number" name="average" id="txtAverage" placeholder="Ingresa el promedio aquí">
+                <input type="number" name="average" id="txtAverage" placeholder="Ingresa el promedio aquí" required>
                 <button class="ui-btn ui-btn-inline">Guardar</button>
             </form>
             
@@ -52,7 +52,7 @@ Google CDN
                     <p>Grado <%= student.group%></p>
                     <p>Promedio <%= student.average%></p>
                     <a href="/api/students/getOne/<%= student.student_id %>" class="ui-btn ui-icon-edit ui-btn-icon-bottom">Editar</a>
-                    <a href="/api/students/deleteOne/<%= student.student_id %>" class="ui-btn ui-icon-delete ui-btn-icon-bottom">Borrar</a>
+                    <a href="/api/students/deleteOne/<%= student.student_id %>" class="ui-btn ui-icon-delete ui-btn-icon-bottom" >Borrar</a>
                     </div>
                 <% }) %>  
             </ul>
